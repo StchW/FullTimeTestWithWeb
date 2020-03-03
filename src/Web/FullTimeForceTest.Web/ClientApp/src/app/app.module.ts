@@ -6,10 +6,22 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { StudentComponent } from './components/student/student.component';
+import { WordComponent } from './components/word/word.component';
+import { EmployeeToCreateComponent } from './components/employee/employee-to-create/employee-to-create.component';
+import { StudentToCreateComponent } from './components/student/student-to-create/student-to-create.component';
+import { WordToCreateComponent } from './components/word/word-to-create/word-to-create.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmployeeComponent,
+    StudentComponent,
+    WordComponent,
+    EmployeeToCreateComponent,
+    StudentToCreateComponent,
+    WordToCreateComponent
   ],
   imports: [
     BrowserModule,

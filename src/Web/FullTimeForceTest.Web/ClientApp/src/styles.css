@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+
+.titlePage {
+    margin-top: 0;
+}
+
+.hrTitlePage {
+    margin-top: 0;
+}
+
+.containerButtonAdd {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
+}
+
+.containerButtonAdd-button {
+  width: 100%;
+}

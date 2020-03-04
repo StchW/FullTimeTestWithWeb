@@ -4,64 +4,137 @@
 </div>
 
 <div>
-  <!--form-->
-  <form class="form-horizontal" [formGroup]="employeeForm" (ngSubmit)="save()" >
+  <div class="col-lg-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Datos del Empleado</h3>
+      </div>
+      <div class="panel-body">
+        <!--form-->
+        <form class="form-horizontal" [formGroup]="employeeForm" (ngSubmit)="save()">
 
-    <div class="form-group">
-      <label for="nombre" class="col-lg-2 control-label">Nombre</label>
-      <div class="col-lg-6">
-        <input type="text" class="form-control" id="nombre" formControlName="name">
-        <span class="invalid-feedback" *ngIf="employeeForm.get('name').touched || employeeForm.get('name').dirty">
-          <span *ngIf="employeeForm.get('name').errors?.required" style="color: red;">
-            Ingresar el Nombre
-          </span>
-        </span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="precioHora" class="col-lg-2 control-label">Precio Hora</label>
-      <div class="col-lg-6">
-        <input type="number" class="form-control" id="precioHora" formControlName="priceHour">
-        <span class="invalid-feedback" *ngIf="employeeForm.get('priceHour').touched || employeeForm.get('priceHour').dirty">
-          <span *ngIf="employeeForm.get('priceHour').errors?.required" style="color: red;">
-            Ingresar el Nombre
-          </span>
-        </span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="totalHoras" class="col-lg-2 control-label">Total Horas</label>
-      <div class="col-lg-6">
-        <input type="number" class="form-control" id="totalHoras" formControlName="totalHoursWork">
-        <span class="invalid-feedback" *ngIf="employeeForm.get('totalHoursWork').touched || employeeForm.get('totalHoursWork').dirty">
-          <span *ngIf="employeeForm.get('totalHoursWork').errors?.required" style="color: red;">
-            Ingresar el Nombre
-          </span>
-        </span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="antiguedad" class="col-lg-2 control-label">Antiguedad</label>
-      <div class="col-lg-6">
-        <input type="number" class="form-control" id="antiguedad" formControlName="antiquity">
-        <span class="invalid-feedback" *ngIf="employeeForm.get('antiquity').touched || employeeForm.get('antiquity').dirty">
-          <span *ngIf="employeeForm.get('antiquity').errors?.required" style="color: red;">
-            Ingresar el Nombre
-          </span>
-        </span>
+          <div class="form-group">
+            <label for="nombre" class="col-lg-2 control-label">Nombre</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="nombre" formControlName="name">
+              <span class="invalid-feedback" *ngIf="employeeForm.get('name').touched || employeeForm.get('name').dirty">
+                <span *ngIf="employeeForm.get('name').errors?.required" style="color: red;">
+                  Ingresa el Nombre
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="precioHora" class="col-lg-2 control-label">Precio Hora</label>
+            <div class="col-lg-6">
+              <input type="number" class="form-control" id="precioHora" formControlName="priceHour">
+              <span class="invalid-feedback" *ngIf="employeeForm.get('priceHour').touched || employeeForm.get('priceHour').dirty">
+                <span *ngIf="employeeForm.get('priceHour').errors?.required" style="color: red;">
+                  Ingresar el Precio Hora
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="totalHoras" class="col-lg-2 control-label">Total Horas</label>
+            <div class="col-lg-6">
+              <input type="number" class="form-control" id="totalHoras" formControlName="totalHoursWork">
+              <span class="invalid-feedback" *ngIf="employeeForm.get('totalHoursWork').touched || employeeForm.get('totalHoursWork').dirty">
+                <span *ngIf="employeeForm.get('totalHoursWork').errors?.required" style="color: red;">
+                  Ingresa el Total Horas
+                </span>
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="antiguedad" class="col-lg-2 control-label">Antiguedad</label>
+            <div class="col-lg-6">
+              <input type="number" class="form-control" id="antiguedad" formControlName="antiquity">
+              <span class="invalid-feedback" *ngIf="employeeForm.get('antiquity').touched || employeeForm.get('antiquity').dirty">
+                <span *ngIf="employeeForm.get('antiquity').errors?.required" style="color: red;">
+                  Ingresa la Antiguedad
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-2">
+              <button type="submit" class="btn btn-primary"
+                      [disabled]="!employeeForm.valid"
+                      [title]="!employeeForm.valid? 'Complete todos los campos requeridos': 'Guardar el salario del empleado'">
+                Guardar
+              </button>
+            </div>
+            <div class="col-lg-2">
+              <button type="button" class="btn btn-default" (click)="resetForm()">Limpiar</button>
+            </div>
+            <div class="col-lg-2">
+              <button type="button" class="btn btn-danger" [routerLink]="['/employee']">Cancelar</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
 
-    <div class="form-group">
-      <div class="col-lg-offset-2 col-lg-1">
-        <button type="submit" class="btn btn-primary"
-                [disabled]="!employeeForm.valid"
-                [title]="!employeeForm.valid? 'Complete todos los campos requeridos': 'Guardar el salario del empleado'"
-                >Guardar</button>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Reporte de Pago</h3>
       </div>
-      <div class="col-lg-1">
-        <button type="button" class="btn btn-danger">Cancelar</button>
+      <div class="panel-body">
+        <div class="form-horizontal">
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Nombre:</label>
+            <div class="col-lg-9">
+              <input type="text" class="form-control" disabled="disabled" value="{{this.employeeToList.name}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Precio Hora:</label>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" disabled="disabled" value="{{this.employeeToList.priceHour}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Total Horas:</label>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" disabled="disabled" value="{{this.employeeToList.totalHoursWork}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Antiguedad</label>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" disabled="disabled" value="{{this.employeeToList.antiquity}}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Pago Bruto:</label>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" disabled="disabled" value="{{this.employeeToList.totalGrossCharge}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Total Descuento:</label>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" disabled="disabled" value="{{this.employeeToList.totalDiscounts}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Pago Neto:</label>
+            <div class="col-lg-3">
+              <input type="text" class="form-control" disabled="disabled" value="{{this.employeeToList.netoPayment}}">
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </form>
+
+  </div>
+
 </div>

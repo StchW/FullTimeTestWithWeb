@@ -30,6 +30,7 @@ namespace FullTimeForceTest.Api.Application.Commands.CreateEmployee
             employee.Name = request.Name;
             employee.PriceHour = request.PriceHour;
             employee.Antiquity = request.Antiquity;
+            employee.TotalHoursWork = request.TotalHoursWork;
             employee.TotalGrossCharge = calculateTotalGrossCharge(request.PriceHour, request.TotalHoursWork, request.Antiquity);
             employee.TotalDiscounts = calculateTotalDiscounts(employee.TotalGrossCharge);
             employee.NetoPayment = (employee.TotalGrossCharge - employee.TotalDiscounts);
@@ -39,9 +40,10 @@ namespace FullTimeForceTest.Api.Application.Commands.CreateEmployee
             dataToResponse.Name = employee.Name;
             dataToResponse.PriceHour = employee.PriceHour;
             dataToResponse.Antiquity = employee.Antiquity;
-            dataToResponse.TotalGrossCharge = employee.TotalGrossCharge;
-            dataToResponse.TotalDiscounts = employee.TotalDiscounts;
-            dataToResponse.NetoPayment = employee.NetoPayment;
+            dataToResponse.TotalHoursWork = employee.TotalHoursWork;
+            dataToResponse.TotalGrossCharge = Math.Round(employee.TotalGrossCharge, 2);
+            dataToResponse.TotalDiscounts = Math.Round(employee.TotalDiscounts, 2);
+            dataToResponse.NetoPayment = Math.Round(employee.NetoPayment, 2);
 
             return dataToResponse;
         }

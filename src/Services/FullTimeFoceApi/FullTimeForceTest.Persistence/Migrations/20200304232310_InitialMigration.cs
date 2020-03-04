@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FullTimeForceTest.Persistence.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,6 +16,7 @@ namespace FullTimeForceTest.Persistence.Migrations
                     Name = table.Column<string>(nullable: false),
                     Antiquity = table.Column<int>(nullable: false),
                     PriceHour = table.Column<double>(nullable: false),
+                    TotalHoursWork = table.Column<double>(nullable: false),
                     TotalGrossCharge = table.Column<double>(nullable: false),
                     TotalDiscounts = table.Column<double>(nullable: false),
                     NetoPayment = table.Column<double>(nullable: false)

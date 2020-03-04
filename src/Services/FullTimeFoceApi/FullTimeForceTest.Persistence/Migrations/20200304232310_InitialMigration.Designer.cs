@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullTimeForceTest.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200229164230_Initial")]
-    partial class Initial
+    [Migration("20200304232310_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,6 +39,8 @@ namespace FullTimeForceTest.Persistence.Migrations
                     b.Property<double>("TotalDiscounts");
 
                     b.Property<double>("TotalGrossCharge");
+
+                    b.Property<double>("TotalHoursWork");
 
                     b.HasKey("Id");
 

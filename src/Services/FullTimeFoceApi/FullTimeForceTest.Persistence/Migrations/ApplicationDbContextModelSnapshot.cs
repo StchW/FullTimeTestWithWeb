@@ -38,6 +38,8 @@ namespace FullTimeForceTest.Persistence.Migrations
 
                     b.Property<double>("TotalGrossCharge");
 
+                    b.Property<double>("TotalHoursWork");
+
                     b.HasKey("Id");
 
                     b.ToTable("Employee");

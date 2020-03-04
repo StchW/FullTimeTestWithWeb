@@ -18,6 +18,8 @@ namespace FulltimeForceTest.Domain.EmployeeAggregate
         [Required]
         public double PriceHour { get; set; }
         [Required]
+        public double TotalHoursWork { get; set; }
+        [Required]
         public double TotalGrossCharge { get; set; }
         [Required]
         public double TotalDiscounts { get; set; }

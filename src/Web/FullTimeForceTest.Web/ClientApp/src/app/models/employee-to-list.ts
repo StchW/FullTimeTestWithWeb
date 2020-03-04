@@ -4,4 +4,8 @@ export class EmployeeToList {
   name: string;
   totalHoursWork: number;
   antiquity: number;
+
+  totalGrossCharge: number;
+  totalDiscounts: number;
+  netoPayment: number;
 }

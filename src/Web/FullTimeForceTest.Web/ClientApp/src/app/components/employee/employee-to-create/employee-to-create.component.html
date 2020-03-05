@@ -10,9 +10,7 @@
         <h3 class="panel-title">Datos del Empleado</h3>
       </div>
       <div class="panel-body">
-        <!--form-->
         <form class="form-horizontal" [formGroup]="employeeForm" (ngSubmit)="save()">
-
           <div class="form-group">
             <label for="nombre" class="col-lg-2 control-label">Nombre</label>
             <div class="col-lg-10">
@@ -70,7 +68,7 @@
               <button type="button" class="btn btn-default" (click)="resetForm()">Limpiar</button>
             </div>
             <div class="col-lg-2">
-              <button type="button" class="btn btn-danger" [routerLink]="['/employee']">Cancelar</button>
+              <button type="button" class="btn btn-danger" [routerLink]="['/employee']">Regresar</button>
             </div>
           </div>
         </form>

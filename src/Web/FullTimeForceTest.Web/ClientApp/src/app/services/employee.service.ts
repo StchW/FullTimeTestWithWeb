@@ -26,6 +26,13 @@ export class EmployeeService extends BaseService {
       );
   }
 
+  listSalaries(): Observable<EmployeeToList[]> {
+    return this.http.get<EmployeeToList[]>(`${this.endpointFulltimeforceApi}/v1/employees/listsalaries`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(err) {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {

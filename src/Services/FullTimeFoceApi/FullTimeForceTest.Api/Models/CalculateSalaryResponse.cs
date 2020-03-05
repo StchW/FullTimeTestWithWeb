@@ -2,6 +2,7 @@
 {
     public class CalculateSalaryResponse
     {
+        public long Id { get; set; }
         public string Name { get; set; }
         public int Antiquity { get; set; }
         public double PriceHour { get; set; }

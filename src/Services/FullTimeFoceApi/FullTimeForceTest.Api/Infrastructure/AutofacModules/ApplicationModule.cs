@@ -2,6 +2,7 @@
 using FullTimeForceTest.Api.Application.Commands.CreateEmployee;
 using FullTimeForceTest.Api.Application.Commands.CreateStudentNote;
 using FullTimeForceTest.Api.Application.Commands.CreateWordPalindroma;
+using FullTimeForceTest.Api.Application.Queries;
 using FullTimeForceTest.Api.Infrastructure.Repository;
 using FullTimeForceTest.Persistence;
 using MediatR;
@@ -31,6 +32,22 @@ namespace FullTimeForceTest.Api.Infrastructure.AutofacModules
             #endregion
 
 
+            #region Queries
+            builder.RegisterType<EmployeeQueries>()
+             .As<IEmployeeQueries>()
+             .InstancePerLifetimeScope();
+
+            builder.RegisterType<StudentQueries>()
+             .As<IStudentQueries>()
+             .InstancePerLifetimeScope();
+
+            builder.RegisterType<WordQueries>()
+             .As<IWordQueries>()
+             .InstancePerLifetimeScope();
+            
+            #endregion
+
+
             #region Repository
 
             builder.RegisterType<ApplicationRepository>()
@@ -40,6 +57,8 @@ namespace FullTimeForceTest.Api.Infrastructure.AutofacModules
 
 
             #endregion
+
+
 
 
         }

@@ -38,7 +38,6 @@ export class EmployeeToCreateComponent implements OnInit {
     if (this.employeeForm.valid) {
       if (this.employeeForm.dirty) {
         const p = { ...this.employeeToCreate, ...this.employeeForm.value };
-        debugger
 
         this.employeeService.saveEmployeeCalculateSalary(p)
           .subscribe({

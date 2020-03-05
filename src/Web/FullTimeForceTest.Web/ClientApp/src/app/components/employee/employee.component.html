@@ -15,26 +15,24 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>Firstname</th>
-          <th>Lastname</th>
-          <th>Email</th>
+          <th>Nombre</th>
+          <th style="text-align: right">Precio Hora</th>
+          <th style="text-align: right">Total Horas</th>
+          <th style="text-align: right">Antiguedad</th>
+          <th style="text-align: right">Pago Bruto</th>
+          <th style="text-align: right">Descuentos</th>
+          <th style="text-align: right">Pago Neto</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-        </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
+        <tr *ngFor="let employee of employees">
+          <td>{{employee.name}}</td>
+          <td style="text-align: right">{{employee.priceHour}}</td>
+          <td style="text-align: right">{{employee.totalHoursWork}}</td>
+          <td style="text-align: right">{{employee.antiquity}}</td>
+          <td style="text-align: right">{{employee.totalGrossCharge}}</td>
+          <td style="text-align: right">{{employee.totalDiscounts}}</td>
+          <td style="text-align: right">{{employee.netoPayment}}</td>
         </tr>
       </tbody>
     </table>

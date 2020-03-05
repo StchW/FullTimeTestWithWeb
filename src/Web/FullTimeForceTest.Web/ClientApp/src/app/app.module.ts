@@ -10,7 +10,6 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { StudentComponent } from './components/student/student.component';
 import { WordComponent } from './components/word/word.component';
 import { EmployeeToCreateComponent } from './components/employee/employee-to-create/employee-to-create.component';
-import { StudentToCreateComponent } from './components/student/student-to-create/student-to-create.component';
 import { WordToCreateComponent } from './components/word/word-to-create/word-to-create.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { WordToCreateComponent } from './components/word/word-to-create/word-to-
     StudentComponent,
     WordComponent,
     EmployeeToCreateComponent,
-    StudentToCreateComponent,
     WordToCreateComponent
   ],
   imports: [

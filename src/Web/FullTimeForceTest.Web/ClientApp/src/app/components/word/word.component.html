@@ -1,5 +1,5 @@
 <div>
-  <h2 class="titlePage">Palindroma Words</h2>
+  <h2 class="titlePage">Palabras Palindromas</h2>
   <hr class="hrTitlePage" />
 </div>
 
@@ -21,7 +21,7 @@
       <tbody>
         <tr *ngFor="let word of words">
           <td>{{word.message}}</td>
-          <td>{{word.isPalindroma}}</td>
+          <td>{{word.isPalindroma? 'Si': 'No'}}</td>
         </tr>
       </tbody>
     </table>

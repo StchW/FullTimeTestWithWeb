@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using FullTimeForceTest.Api.Application.Commands.CreateWordPalindroma;
+using FullTimeForceTest.Api.Models;
 using FullTimeForceTest.Persistence;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +29,7 @@ namespace FullTimeForceTest.Api.Controllers
             var isPalindroma = await _mediator.Send(word);
             string message = "No es palindroma";
             if (isPalindroma) message = "Es palindroma";
-            return Ok(message);
+            return Ok(new EvaluateWordPalindromaResponse() { Message = message, IsPalindroma = isPalindroma });
         }
 
     }

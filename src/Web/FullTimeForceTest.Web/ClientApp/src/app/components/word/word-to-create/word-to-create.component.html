@@ -1,1 +1,55 @@
-<p>word-to-create works!</p>
+<div>
+  <h2 class="titlePage">Evaluar Palabra Palindroma</h2>
+  <hr class="hrTitlePage" />
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Palabra a Evaluar</h3>
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" [formGroup]="wordForm" (ngSubmit)="save()">
+          <div class="form-group">
+            <label for="palabra" class="col-lg-2 control-label">Palabra</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="palabra" formControlName="message">
+              <span class="invalid-feedback" *ngIf="wordForm.get('message').touched || wordForm.get('message').dirty">
+                <span *ngIf="wordForm.get('message').errors?.required" style="color: red;">
+                  Ingresa la Palabra
+                </span>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-2">
+              <button type="submit" class="btn btn-primary"
+                      [disabled]="!wordForm.valid"
+                      [title]="!wordForm.valid? 'Complete todos los campos requeridos': 'Evaluar la palabra'">
+                Evaluar
+              </button>
+            </div>
+            <div class="col-lg-2">
+              <button type="button" class="btn btn-default" (click)="reset()">Limpiar</button>
+            </div>
+            <div class="col-lg-2">
+              <button type="button" class="btn btn-danger" [routerLink]="['/word']">Regresar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br />
+
+<div class="row" *ngIf="!isInEvaluation">
+  <div class="alert alert-info alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>{{wordForm.get('message').value}}</strong> {{this.wordToList.message}}
+  </div>
+</div>
+

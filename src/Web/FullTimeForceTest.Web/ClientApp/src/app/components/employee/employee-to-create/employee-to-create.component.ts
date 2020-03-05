@@ -59,7 +59,6 @@ export class EmployeeToCreateComponent implements OnInit {
   }
 
   onSaveComplete(): void {
-    // Reset the form to clear the flags
     this.employeeForm.reset();
     this.router.navigate(['/employee']);
   }

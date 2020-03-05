@@ -3,6 +3,7 @@ using FullTimeForceTest.Api.Models;
 using FullTimeForceTest.Persistence;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FullTimeForceTest.Api.Application.Queries
@@ -21,7 +22,7 @@ namespace FullTimeForceTest.Api.Application.Queries
         {
             List<CalculateSalaryResponse> employees = new List<CalculateSalaryResponse>();
             CalculateSalaryResponse employeeToResponse = null;
-            var employeesDB = _dbEmployee.GetList();
+            var employeesDB = _dbEmployee.GetList().OrderByDescending(x => x.Id).ToList();
 
             if (employeesDB == null || employeesDB.Count == 0) return employees;
 

@@ -24,6 +24,10 @@ export class PalindromaWordService extends BaseService {
       );
   }
 
+  list(): Observable<WordToList[]> {
+    return this.http.get<WordToList[]>(`${this.endpointFulltimeforceApi}/v1/wordspalindroma/listWords`);
+  }
+
   //private handleError(err) {
   //  let errorMessage: string;
   //  if (err.error instanceof ErrorEvent) {

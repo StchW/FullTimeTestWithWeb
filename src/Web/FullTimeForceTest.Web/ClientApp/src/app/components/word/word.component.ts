@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PalindromaWordService } from '../../services/palindroma-word.service';
+import { WordToList } from '../../models/word-to-list';
 
 @Component({
   selector: 'app-word',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WordComponent implements OnInit {
 
-  constructor() { }
+  words: WordToList[] = [];
+
+  constructor(private palindromaWordService: PalindromaWordService) { }
 
   ngOnInit() {
+    this.palindromaWordService.list().subscribe({
+      next: wordsResult => this.words = wordsResult
+    });
   }
 
 }

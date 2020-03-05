@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using FullTimeForceTest.Api.Application.Commands.CreateWordPalindroma;
+using FullTimeForceTest.Api.Application.Queries;
 using FullTimeForceTest.Api.Models;
 using FullTimeForceTest.Persistence;
 using MediatR;
@@ -12,14 +13,14 @@ namespace FullTimeForceTest.Api.Controllers
     public class WordsPalindromaController : Controller
     {
         private readonly IMediator _mediator;
-        private ApplicationDbContext _context;
+        private readonly IWordQueries _wordQueries;
 
         public WordsPalindromaController(
-            ApplicationDbContext context,
-            IMediator mediator)
+            IMediator mediator,
+            IWordQueries wordQueries)
         {
-            _context = context;
             _mediator = mediator;
+            _wordQueries = wordQueries;
         }
 
         [HttpPost]
@@ -32,5 +33,12 @@ namespace FullTimeForceTest.Api.Controllers
             return Ok(new EvaluateWordPalindromaResponse() { Message = message, IsPalindroma = isPalindroma });
         }
 
+        [HttpGet]
+        [Route("listWords")]
+        public async Task<IActionResult> ListWords()
+        {
+            var words = await _wordQueries.ListWords();
+            return Ok(words);
+        }
     }
 }
